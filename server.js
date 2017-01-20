@@ -1,22 +1,13 @@
-let express = require('express');
-let mongoose = require('mongoose');
+const mongoose = require('mongoose');
 mongoose.connect('mongodb://localhost/test_books');
-let BookMongoRepository = require('./Infrastructure/Persistence/Book/BookMongoRepository');
+mongoose.Promise = global.Promise;
 
-let bookRepo = new BookMongoRepository();
-
-//let caca = new Book('caca', 'caca', 'author', 'caca picture');
-
-//import { Book } from 'models/book';
-
-//let book = new Book('caca', 'caca', 'author', 'caca picture');
-
-console.log(bookRepo.createSchema());
-
-let Book = mongoose.model('Book', bookRepo.createSchema());
-
-let book = new Book({ name: 'test', author: 'test autor' });
-book.save(function (err, data) {
-    if (err) return handleError(err);
-    console.log(data);
+const bodyParser = require('body-parser');
+const app = require('express')();
+const api = require('app/api');
+const version = '0.1',
+    port = 3000;
+app.use('/api/' + version, api);
+app.listen(port, function () {
+    console.log(`[Atrapalo Booking Service] running in port ${port}`);
 });

@@ -1,30 +1,35 @@
 'use strict';
 
-const BaseModel = require('./../BaseModel');
+const BaseModel = require('Domain/BaseModel');
 
 class Book extends BaseModel {
-    constructor(name, description, author, picture){
-        super(new Date());
+    constructor(name, description, author, pages, publisher){
+        super();
         this._name = name;
         this._description = description;
         this._author = author;
-        this._picture = picture;
+        this._pages = pages;
+        this._publisher = publisher;
     }
 
-    getName() {
+    get name() {
         return this._name;
     }
 
-    getDescription() {
+    get description() {
         return this._description;
     }
 
-    getAuthor() {
+    get author() {
         return this._author;
     }
 
-    getPicture() {
-        return this._picture;
+    get pages() {
+        return this._pages;
+    }
+
+    get publisher() {
+        return this._publisher;
     }
 }
 
