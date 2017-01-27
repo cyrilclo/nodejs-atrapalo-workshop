@@ -1,18 +1,27 @@
 const Repository = require('Infrastructure/Persistence/Repository');
+const Promise = require("bluebird");
+const collection = [];
 
 class InMemoryRepository extends Repository {
 
     constructor() {
         super();
         this.validate();
-        this.collection = [];
+
     }
 
     save(model) {
-        this.collection.push(model);
+        return new Promise((resolve, reject) => {
 
-        return new Promise( function (resolve, reject) {
-            resolve(model);
+            let modelId = collection.length + 1;
+            model.setId(modelId);
+            model.
+            if(collection.push(model)) {
+                resolve(model);
+            }
+            else {
+                reject('Impossible to add this model in the collection');
+            }
         });
     }
 
@@ -28,12 +37,7 @@ class InMemoryRepository extends Repository {
     }
 
     validate() {
-        if (typeof this.getModelName !== "function") {
-            throw "Repository must implement getModelName() method";
-        }
-        if (typeof this.getSchema !== "function") {
-            throw "Repository must implement getSchema() method";
-        }
+
     }
 }
 

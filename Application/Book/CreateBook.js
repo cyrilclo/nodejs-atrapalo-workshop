@@ -1,9 +1,9 @@
-let BookMongoRepository = require('Infrastructure/Persistence/Book/BookMongoRepository');
+let BookRepository = require('Infrastructure/Persistence/Book/BookInMemoryRepository');
 let Book = require('Domain/Book/Book');
 
 class CreateBook {
     constructor() {
-        this.BookRepository = new BookMongoRepository();
+        this.BookRepository = new BookRepository();
 
         this.validate = function (bookRequest) {
 
@@ -38,7 +38,11 @@ class CreateBook {
             );
 
             return this.BookRepository.save(book).then(function(data) {
-                return data;
+
+                console.log('ÑÑÑÑÑÑÑÑÑÑÑ');
+                console.log(data);
+
+                return new CreateBookPresenter(data);
             }).catch(function(err) {
                 return err;
             });

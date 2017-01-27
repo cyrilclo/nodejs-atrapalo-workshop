@@ -24,7 +24,6 @@ describe('Domain/Book/Book', function() {
             expect(book.author).to.be.equals(author);
             expect(book.pages).to.be.equals(pages);
             expect(book.publisher).to.be.equals(publisher);
-            //expect(book.publisher).to.be.equals('este peta');
         });
     });
 });

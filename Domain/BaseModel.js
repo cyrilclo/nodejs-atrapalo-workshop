@@ -3,11 +3,11 @@
 class BaseModel {
     constructor(){}
 
-    set id(id){
+    setId(id){
         this._id = id;
     }
 
-    set createdAt(createdAt){
+    setUreatedAt(createdAt){
         if(false === createdAt instanceof Date) {
             throw new TypeError("paramter must be an instance of Date");
         }
@@ -15,7 +15,7 @@ class BaseModel {
         this._createdAt = createdAt;
     }
 
-    set updatedAt(updatedAt){
+    setUpdatedAt(updatedAt){
         if(false === updatedAt instanceof Date) {
             throw new TypeError("paramter must be an instance of Date");
         }
@@ -23,15 +23,15 @@ class BaseModel {
         this._updatedAt = updatedAt;
     }
 
-    get id() {
+    getId() {
         return this._id;
     }
 
-    get createdAt() {
+    getCreatedAt() {
         return this._createdAt;
     }
 
-    get updatedAt() {
+    getUpdatedAt() {
         return this._updatedAt;
     }
 }

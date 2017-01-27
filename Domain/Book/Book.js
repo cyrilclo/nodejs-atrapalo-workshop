@@ -1,10 +1,10 @@
-'use strict';
-
 const BaseModel = require('Domain/BaseModel');
+const uniqueId = require('lodash.uniqueid');
 
 class Book extends BaseModel {
     constructor(name, description, author, pages, publisher){
         super();
+        this._id = uniqueId('book');
         this._name = name;
         this._description = description;
         this._author = author;
@@ -12,23 +12,23 @@ class Book extends BaseModel {
         this._publisher = publisher;
     }
 
-    get name() {
+    getName() {
         return this._name;
     }
 
-    get description() {
+    getDescription() {
         return this._description;
     }
 
-    get author() {
+    getAuthor() {
         return this._author;
     }
 
-    get pages() {
+    getPages() {
         return this._pages;
     }
 
-    get publisher() {
+    getPublisher() {
         return this._publisher;
     }
 }

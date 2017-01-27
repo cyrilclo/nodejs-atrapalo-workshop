@@ -4,11 +4,11 @@ class BookPersistable {
 
     static buildPersistableModel(data) {
         return {
-            name: data.name,
-            author: data.author,
-            description: data.description,
-            pages: data.pages,
-            publisher: data.publisher
+            name: data.getName(),
+            author: data.getAuthor(),
+            description: data.getDescription(),
+            pages: data.getPages(),
+            publisher: data.getPublisher()
         };
     }
 
